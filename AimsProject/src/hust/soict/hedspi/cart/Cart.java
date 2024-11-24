@@ -8,13 +8,13 @@ public class Cart {
   private int itemQuantity = 0;
 
   public void addDigitalVideoDisc(DigitalVideoDisc disc) {
-    if (itemQuantity == MAX_NUMBERS_ORDERD) {
-      System.out.println("The cart is almost full");
-      return;
-    }
+      if (itemQuantity == MAX_NUMBERS_ORDERD) {
+        System.out.println("The cart is almost full");
+        return;
+      }
 
-    itemsOrderd[itemQuantity++] = disc;
-    System.out.println("The disc has been added");
+      itemsOrderd[itemQuantity++] = disc;
+      System.out.println("The disc has been added");
   }
 
   public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
@@ -22,6 +22,18 @@ public class Cart {
 		  this.addDigitalVideoDisc(item);
       }
   }
+
+  public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+      if (itemQuantity == MAX_NUMBERS_ORDERD) {
+        System.out.println("The cart is almost full");
+        return;
+      }
+
+      itemsOrderd[itemQuantity++] = dvd1;
+      itemsOrderd[itemQuantity++] = dvd2;
+      System.out.println("The disc has been added");
+  }
+
   public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
     if (itemQuantity == 0) {
       System.out.println("The cart is almost empty");
