@@ -20,8 +20,13 @@ public class Aims {
 				"Animation", 18.99f);
 //		anOrder.addDigitalVideoDisc(dvd3);
 
-		anOrder.removeDigitalVideoDisc(dvd2);
-		anOrder.addDigitalVideoDisc(dvd2);
+//		anOrder.removeDigitalVideoDisc(dvd2);
+//		anOrder.addDigitalVideoDisc(dvd2);
+
+//		DigitalVideoDisc[] dvd = {dvd1, dvd2, dvd3};
+//		anOrder.addDigitalVideoDisc(dvd);
+
+		anOrder.addDigitalVideoDisc(dvd2, dvd1);
 
 		System.out.println("Total Cost is: " + anOrder.totalCost());
 	}
