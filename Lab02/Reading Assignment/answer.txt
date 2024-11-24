@@ -1,0 +1,16 @@
+Use Accessors
+Limit Direct Access: Accessor methods (getters and setters) should be used sparingly 
+because they can create tight coupling between classes. 
+Rather than exposing internal variables. 
+Classes should focus on providing behaviors and methods 
+that perform operations directly related to the class's role.
+
+Encapsulate Behavior, Not Data: Designing classes to expose behaviors, not data, 
+meaning it’s preferable to create methods that execute tasks the class is responsible for, 
+rather than retrieving data for external manipulation.
+Accessors should be used only when you genuinely need to expose some 
+internal state for interoperability or legacy reasons.
+
+Consider Invariants: If a class has invariants—conditions 
+that should always be true for the state of an object—use accessors 
+cautiously to ensure these invariants are protected and not inadvertently altered by other parts of the code.
