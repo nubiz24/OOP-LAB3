@@ -87,4 +87,23 @@ public class Cart {
     System.out.println("***********************************************");
 
   }
+  // Tìm kiếm theo ID
+  public boolean searchById(int id) {
+    for (int i = 0; i < qtyOrdered; i++) {
+      if (itemsOrdered[i].isMatch(id)) {
+        return true; // Tìm thấy DVD theo ID
+      }
+    }
+    return false; // Không tìm thấy DVD theo ID
+  }
+
+  // Tìm kiếm theo title
+  public boolean searchByTitle(String title) {
+    for (int i = 0; i < qtyOrdered; i++) {
+      if (itemsOrdered[i].isMatch(title)) {
+        return true; // Tìm thấy DVD theo title
+      }
+    }
+    return false; // Không tìm thấy DVD theo title
+  }
 }
