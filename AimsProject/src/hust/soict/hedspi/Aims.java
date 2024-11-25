@@ -28,6 +28,7 @@ public class Aims {
 
 		anOrder.addDigitalVideoDisc(dvd2, dvd1);
 
-		System.out.println("Total Cost is: " + anOrder.totalCost());
+//		System.out.println("Total Cost is: " + anOrder.totalCost());
+		System.out.println("The id of " + dvd1.getTitle() + " is " + dvd1.getId());
 	}
 }
