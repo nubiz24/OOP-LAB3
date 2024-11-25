@@ -3,6 +3,10 @@ package hust.soict.hedspi;
 import hust.soict.hedspi.cart.Cart;
 import hust.soict.hedspi.disc.DigitalVideoDisc;
 
+import java.util.Scanner;
+
+
+
 public class Aims {
 	public static void main(String[] args) {
 
@@ -26,9 +30,10 @@ public class Aims {
 //		DigitalVideoDisc[] dvd = {dvd1, dvd2, dvd3};
 //		anOrder.addDigitalVideoDisc(dvd);
 
-		anOrder.addDigitalVideoDisc(dvd2, dvd1);
+//		anOrder.addDigitalVideoDisc(dvd2, dvd1);
 
 //		System.out.println("Total Cost is: " + anOrder.totalCost());
-		System.out.println("The id of " + dvd1.getTitle() + " is " + dvd1.getId());
+//		System.out.println("The id of " + dvd1.getTitle() + " is " + dvd1.getId());
+
 	}
 }

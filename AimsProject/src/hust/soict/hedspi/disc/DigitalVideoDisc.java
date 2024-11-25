@@ -68,6 +68,15 @@ public class DigitalVideoDisc {
 		this.id = nbDigitalVideoDiscs;
 	}
 
+	public boolean isMatch(int id) {
+		return this.id == id; // Kiểm tra ID
+	}
+
+	public boolean isMatch(String title) {
+		return this.title.equalsIgnoreCase(title); // Kiểm tra title (không phân biệt hoa thường)
+	}
+
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
