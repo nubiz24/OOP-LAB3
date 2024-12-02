@@ -1,49 +1,49 @@
-package hust.soict.hedspi.cart;
-
-import hust.soict.hedspi.disc.DigitalVideoDisc;
-
-import java.util.Scanner;
-
-public class CartTest {
-    public static void main(String[] args) {
-        Cart cart = new Cart();
-
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
-        cart.addDigitalVideoDisc(dvd1);
-
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
-        cart.addDigitalVideoDisc(dvd2);
-
-        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
-        cart.addDigitalVideoDisc(dvd3);
-
-//        cart.printCart();
-
-
-        System.out.println("Enter the title of DVD you want to search: ");
-
-        Scanner sc = new Scanner(System.in);
-        String title = sc.nextLine();
-
-       //  Tìm kiếm DVD theo title
-        if (cart.searchByTitle(title)) {
-            System.out.println("Found DVD with title \"" + title + "\"");
-        } else {
-            System.out.println("Not found DVD with title \"" + title + "\"");
-        }
-
-//        System.out.println("Enter the ID of DVD you want to search: ");
+//package hust.soict.hedspi.cart;
+//
+//import hust.soict.hedspi.media.DigitalVideoDisc;
+//
+//import java.util.Scanner;
+//
+//public class CartTest {
+//    public static void main(String[] args) {
+//        Cart cart = new Cart();
+//
+//        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
+//        cart.addDigitalVideoDisc(dvd1);
+//
+//        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
+//        cart.addDigitalVideoDisc(dvd2);
+//
+//        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
+//        cart.addDigitalVideoDisc(dvd3);
+//
+////        cart.printCart();
+//
+//
+//        System.out.println("Enter the title of DVD you want to search: ");
 //
 //        Scanner sc = new Scanner(System.in);
-//        int idForSearch = sc.nextInt();
+//        String title = sc.nextLine();
 //
-//        if (cart.searchById(idForSearch)) {
-//            System.out.println("Found DVD with ID " + idForSearch);
+//       //  Tìm kiếm DVD theo title
+//        if (cart.searchByTitle(title)) {
+//            System.out.println("Found DVD with title \"" + title + "\"");
 //        } else {
-//            System.out.println("Not found DVD with ID " + idForSearch);
+//            System.out.println("Not found DVD with title \"" + title + "\"");
 //        }
-
-        sc.close();
-
-    }
-}
+//
+////        System.out.println("Enter the ID of DVD you want to search: ");
+////
+////        Scanner sc = new Scanner(System.in);
+////        int idForSearch = sc.nextInt();
+////
+////        if (cart.searchById(idForSearch)) {
+////            System.out.println("Found DVD with ID " + idForSearch);
+////        } else {
+////            System.out.println("Not found DVD with ID " + idForSearch);
+////        }
+//
+//        sc.close();
+//
+//    }
+//}
