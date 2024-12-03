@@ -2,7 +2,7 @@ package hust.soict.hedspi.media;
 
 import java.util.Comparator;
 
-public class CompareByTitleCost implements Comparator<Media> {
+public class MediaComparatorByTitleCost implements Comparator<Media> {
 
     @Override
     public int compare(Media media1, Media media2) {
