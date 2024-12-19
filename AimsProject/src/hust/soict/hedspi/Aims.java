@@ -1,5 +1,6 @@
 package hust.soict.hedspi;
 import hust.soict.hedspi.cart.Cart;
+import hust.soict.hedspi.exception.PlayerException;
 import hust.soict.hedspi.media.*;
 import hust.soict.hedspi.store.Store;
 import java.util.ArrayList;
@@ -8,19 +9,19 @@ import java.util.Scanner;
 public class Aims {
     private static Store store = new Store();
     private static Cart cart = new Cart();
-    public static void main(String[] args) {
+    public static void main(String[] args) throws PlayerException {
         storeSetup();
         showMenu();
     }
     public static void storeSetup() {
         // DVD
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc( "Frozen", "Animation", 22.50f, 102, "Chris Buck");
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc( "Frozen", "Animation", 22.50f, -1102, "Chris Buck");
         DigitalVideoDisc dvd2 = new DigitalVideoDisc( "The Matrix", "Science Fiction", 29.99f, 136, "Wachowski Sisters");
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Beauty and the Beast", "Animation", 17.99f, 84, "Gary Trousdale");
         Store.addMedia(dvd1); Store.addMedia(dvd2); Store.addMedia(dvd3);
         // CD + Track
-        CompactDisc cd1 = new CompactDisc(4, "Back in Black", "Rock", 19.99f, 41, "AC/DC", "AC/DC");
-        Track track1 = new Track("Hells Bells", 312);
+        CompactDisc cd1 = new CompactDisc(4, "Back in Black", "Rock", 19.99f, -41, "AC/DC", "AC/DC");
+        Track track1 = new Track("Hells Bells", 4);
         Track track2 = new Track("Back in Black", 255);
         Track track3 = new Track("You Shook Me All Night Long", 232);
         cd1.addTrack(track1); cd1.addTrack(track2); cd1.addTrack(track3);
@@ -40,7 +41,7 @@ public class Aims {
         Book book3 = new Book(9, "Dune", "Science Fiction", 14.20f, "Frank Herbert");
         Store.addMedia(book1); Store.addMedia(book2); Store.addMedia(book3);
     }
-    public static void showMenu() {
+    public static void showMenu() throws PlayerException {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("AIMS: ");
@@ -74,7 +75,7 @@ public class Aims {
             }
         }
     }
-    public static void storeMenu() {
+    public static void storeMenu() throws PlayerException {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -115,7 +116,7 @@ public class Aims {
         }
     }
 
-    private static void viewMediaDetails(Scanner scanner) {
+    private static void viewMediaDetails(Scanner scanner) throws PlayerException {
         while (true) {
             System.out.print("Enter the title of the media to view details (Press 0 to return): ");
             String title = scanner.nextLine();
@@ -152,7 +153,7 @@ public class Aims {
         }
     }
 
-    private static void playMedia(Scanner scanner) {
+    private static void playMedia(Scanner scanner) throws PlayerException {
         while (true) {
             System.out.print("Enter the title of the media to play (Press 0 to return): ");
             String title = scanner.nextLine();
@@ -175,7 +176,7 @@ public class Aims {
             }
         }
     }
-    public static void mediaDetailsMenu(Media media) {
+    public static void mediaDetailsMenu(Media media) throws PlayerException {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -208,7 +209,7 @@ public class Aims {
         }
     }
 
-    private static void playMedia(Media media) {
+    private static void playMedia(Media media) throws PlayerException {
         if (media instanceof CompactDisc) {
             ((CompactDisc) media).play();
         } else if (media instanceof DigitalVideoDisc) {
@@ -219,7 +220,7 @@ public class Aims {
     }
 
 
-    public static void cartMenu() {
+    public static void cartMenu() throws PlayerException {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -328,7 +329,7 @@ public class Aims {
         }
     }
 
-    private static void playMediaFromCart(Scanner scanner) {
+    private static void playMediaFromCart(Scanner scanner) throws PlayerException {
         while (true) {
             System.out.print("Enter the title of the media to play (Press 0 to return): ");
             String title = scanner.nextLine();

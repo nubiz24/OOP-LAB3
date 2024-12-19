@@ -1,5 +1,10 @@
 package hust.soict.hedspi.media;
+import hust.soict.hedspi.exception.PlayerException;
+
+import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Iterator;
+
 public class CompactDisc extends Disc implements Playable{
     private String artist;
     private ArrayList<Track> tracks = new ArrayList<Track>();
@@ -31,24 +36,37 @@ public class CompactDisc extends Disc implements Playable{
             System.out.println("Track " + track.getTitle() + " is not in the list.");
         }
     }
-    public int getLength() {
-        return this.getLength();
-    }
     @Override
-    public void play() {
-        if (tracks.isEmpty()) {
-            System.out.println("No tracks in the CD to play.");
-            return;
+    public void play() throws PlayerException {
+        // Kiểm tra độ dài của CD
+        if (this.getLength() <= 0) {
+            throw new PlayerException("ERROR: CD length is non-positive");
         }
+
         System.out.println("Playing CD: " + this.getTitle());
-        System.out.println("Artist: " + this.getArtist());
         System.out.println("CD length: " + this.getLength());
-        for (Track track : tracks) {
-            if (track != null) {
-                track.play();
-            } else {
-                System.out.println("Null track encountered.");
+
+        // Lặp qua các track và phát
+        Iterator<Track> iter = tracks.iterator();
+        Track nextTrack;
+        boolean trackErrorOccurred = false; // Cờ để kiểm tra có lỗi xảy ra khi phát track
+
+        while (iter.hasNext()) {
+            nextTrack = iter.next();
+            try {
+                nextTrack.play(); // Phát từng track
+            } catch (PlayerException e) {
+                // Nếu có lỗi với track này, thông báo lỗi và tiếp tục phát các track tiếp theo
+                System.err.println("Error occurred while playing track: " + nextTrack.getTitle());
+                JOptionPane.showMessageDialog(null, "Error playing track: " + nextTrack.getTitle() + "\n" + e.getMessage(),
+                        "Track Playback Error", JOptionPane.ERROR_MESSAGE);
+                trackErrorOccurred = true;
             }
+        }
+
+        // Nếu có lỗi xảy ra trong quá trình phát track, bạn có thể thông báo lại cho người dùng
+        if (trackErrorOccurred) {
+            System.err.println("Some tracks could not be played successfully.");
         }
     }
     @Override

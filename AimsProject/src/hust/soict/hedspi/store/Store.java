@@ -13,6 +13,7 @@ public class Store {
                 break;
             }
         }
+
         if (!existed) {
             itemsInStore.add(media);
             System.out.println("The media has been added in Store.");
@@ -35,6 +36,11 @@ public class Store {
             System.out.println("The media is not in the store.");
         }
     }
+
+    public static ArrayList<Media> getItemsInStore() {
+        return itemsInStore;
+    }
+
     // Hiển thị tất cả các phương tiện trong cửa hàng
     public void printStore() {
         for (Media media : itemsInStore) {
